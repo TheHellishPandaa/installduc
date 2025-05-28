@@ -22,7 +22,7 @@ sudo make install
 echo "=== CONFIGURANDO DUC ==="
 sudo /usr/local/bin/noip2 -C
 
-echo "=== CREANDO SERVICIO SYSTEMD ==="
+echo "=== CONFIGURANDO DUC COMO SERVICIO ==="
 sudo tee /etc/systemd/system/noip2.service > /dev/null <<EOL
 [Unit]
 Description=No-IP Dynamic DNS Update Client
@@ -40,4 +40,6 @@ echo "=== HABILITANDO Y INICIANDO EL SERVICIO ==="
 sudo systemctl daemon-reexec
 sudo systemctl daemon-reload
 sudo systemctl enable --now noip2
+
+echo "== COMPROBAR SERVICIO DUC =="
 sudo systemctl status noip2
